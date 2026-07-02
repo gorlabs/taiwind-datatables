@@ -10,6 +10,26 @@ use Inertia\Inertia;
 
 class PostController extends Controller
 {
+    public function vueNative(PostsDataTable $postsDataTable)
+    {
+        $columns = $postsDataTable->getColumns();
+
+        $formattedColumns = collect($columns)->map(function ($column) {
+            return [
+                'data' => $column->data,
+                'name' => $column->name,
+                'title' => $column->title,
+                'orderable' => $column->orderable,
+                'searchable' => $column->searchable,
+                'className' => $column->className ?? '',
+            ];
+        })->toArray();
+
+        return Inertia::render('Posts/IndexVueNative', [
+            'columns' => $formattedColumns,
+        ]);
+    }
+
     public function index(PostsDataTable $postsDataTable)
     {
         $columns = $postsDataTable->getColumns();

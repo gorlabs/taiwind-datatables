@@ -26,6 +26,9 @@ Route::middleware('auth')->group(function () {
 
     // Inertia tarafından render edilecek Post listesi sayfası
     Route::resource('posts', \App\Http\Controllers\PostController::class);
+
+    // Vue-Native Demo sayfası (Plan 0004)
+    Route::get('/posts-vue-native', [\App\Http\Controllers\PostController::class, 'vueNative'])->name('posts.vue-native');
     // DataTables'ın AJAX istekleriyle veri alacağı API endpoint'i de aynı index metodu üzerinden yönetilecek.
     Route::get('/posts-data', [\App\Http\Controllers\PostController::class, 'ajaxData'])->name('posts.data');
 });
