@@ -1,6 +1,6 @@
 # Gorlabs Laravel Tailwind DataTables Package
 
-[![Türkçe](https://img.shields.io/badge/Dil-Türkçe-red.svg)](docs/tr/giris.md)
+[![Türkçe](https://img.shields.io/badge/Dil-Türkçe-red.svg)](docs/tr/README.md)
 
 ## Quick Start Guides
 
@@ -89,6 +89,13 @@ Each example project manages its own dependencies and database.
     php artisan serve
     # Open your Livewire page in the browser
     ```
+
+## Full Documentation
+
+* [Basic Usage and Configuration](docs/en/basic-usage.md)
+* [Laravel Breeze Livewire Stack Setup](docs/en/setup-livewire.md)
+* [Laravel Breeze Vue.js Stack Setup](docs/en/setup-vue.md)
+* [Column Customization Examples](docs/en/column-customization.md)
 
 ## Contributing
 

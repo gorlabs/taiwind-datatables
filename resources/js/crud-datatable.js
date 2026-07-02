@@ -26,13 +26,18 @@ window.GorlabsDatatables.date = function (format = 'YYYY-MM-DD') {
 
 /**
  * Durum için badge/rozet render fonksiyonu.
+ * Fallback: config bridge'den okur, yoksa varsayılan Türkçe değerleri kullanır.
  */
-window.GorlabsDatatables.statusBadge = function (trueText = 'Yayınlandı', falseText = 'Taslak') {
+window.GorlabsDatatables.statusBadge = function (trueText, falseText) {
+    // Config bridge'den oku, yoksa varsayılan Türkçe fallback kullan
+    const config = window.GorlabsDatatables?.config?.status_badges || {};
+    const activeText = trueText || config?.published?.text || 'Yayınlandı';
+    const inactiveText = falseText || config?.draft?.text || 'Taslak';
     return function (data, type, row, meta) {
         if (type === 'display') {
             const isTrue = data === 1 || data === true || data === 'true';
             const bgColor = isTrue ? 'bg-green-100 text-green-800' : 'bg-yellow-100 text-yellow-800';
-            const text = isTrue ? trueText : falseText;
+            const text = isTrue ? activeText : inactiveText;
             return `<span class="px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${bgColor}">${text}</span>`;
         }
         return data;

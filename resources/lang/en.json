@@ -1,0 +1,14 @@
+{
+    "form.title": "Title",
+    "form.content": "Content",
+    "form.is_published": "Published?",
+    "form.published_at": "Published Date (Optional)",
+    "form.cancel": "Cancel",
+    "form.save": "Save",
+    "form.saving": "Saving...",
+    "alert.success": "Success!",
+    "alert.success_default": "Operation completed successfully!",
+    "alert.error": "Error!",
+    "badge.published": "Published",
+    "badge.draft": "Draft"
+}

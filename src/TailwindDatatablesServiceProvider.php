@@ -4,6 +4,7 @@ namespace Gorlabs\TailwindDatatables;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
 
 class TailwindDatatablesServiceProvider extends ServiceProvider
 {
@@ -13,6 +14,7 @@ class TailwindDatatablesServiceProvider extends ServiceProvider
     public function boot(): void
     {
         $this->loadViewsFrom(__DIR__.'/../resources/views', 'tailwind-datatables');
+        $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'gorlabs-tailwind-datatables');
 
         $this->publishes([
             __DIR__.'/../resources/views' => resource_path('views/vendor/tailwind-datatables'),
@@ -38,6 +40,25 @@ class TailwindDatatablesServiceProvider extends ServiceProvider
             Config::set('datatables-html.view', 'tailwind-datatables::datatable.table');
         }
 
+        // JS-CONFIG BRIDGE: Config değerlerini Blade üzerinden JS'e aktar
+        // Bu değerler crud-datatable.js ve post-form.js tarafından okunur.
+        $renderOptions = config('gorlabs-tailwind-datatables.render_options', []);
+        $defaults = config('gorlabs-tailwind-datatables.defaults', []);
+
+        $jsConfig = [
+            'date_format' => $renderOptions['date_format'] ?? 'DD.MM.YYYY HH:mm',
+            'text_truncate_length' => $renderOptions['text_truncate_length'] ?? 50,
+            'status_badges' => $renderOptions['status_badges'] ?? [
+                'published' => ['text' => 'Yayınlandı', 'class' => 'bg-green-500'],
+                'draft' => ['text' => 'Taslak', 'class' => 'bg-red-500'],
+            ],
+            'locale' => app()->getLocale(),
+        ];
+
+        // View composer ile config'i views'a enjekte et
+        View::composer(['tailwind-datatables::datatables.table', 'tailwind-datatables::datatables.scripts'], function ($view) use ($jsConfig) {
+            $view->with('gorlabsDatatablesConfig', $jsConfig);
+        });
     }
 
     /**
