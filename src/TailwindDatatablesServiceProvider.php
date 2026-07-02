@@ -52,6 +52,12 @@ class TailwindDatatablesServiceProvider extends ServiceProvider
                 'published' => ['text' => 'Yayınlandı', 'class' => 'bg-green-500'],
                 'draft' => ['text' => 'Taslak', 'class' => 'bg-red-500'],
             ],
+            'alerts' => [
+                'success' => 'Başarılı!',
+                'success_default' => 'İşlem başarıyla tamamlandı!',
+                'error' => 'Hata!',
+                'network_error' => 'Bir ağ hatası oluştu veya sunucuya ulaşılamadı: ',
+            ],
             'locale' => app()->getLocale(),
         ];
 

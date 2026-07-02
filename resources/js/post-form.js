@@ -61,17 +61,26 @@ export const postForm = (initialPostData = {}) => {
                 const data = await response.json();
                 console.log('Server response:', data);
 
+                // Config bridge'den oku, yoksa varsayılan Türkçe fallback kullan
+                const alertConfig = window.GorlabsDatatables?.config?.alerts || {};
+
                 if (response.ok) {
-                    Swal.fire('Başarılı!', data.message || 'İşlem başarıyla tamamlandı!', 'success');
+                    const title = alertConfig?.success || 'Başarılı!';
+                    const text = data.message || alertConfig?.success_default || 'İşlem başarıyla tamamlandı!';
+                    Swal.fire(title, text, 'success');
                     this.$dispatch('close-modal');
                     window.dispatchEvent(new CustomEvent('datatable-reload'));
                 } else {
                     const errorMessage = data.message || 'Bir hata oluştu.';
-                    Swal.fire('Hata!', errorMessage, 'error');
+                    const title = alertConfig?.error || 'Hata!';
+                    Swal.fire(title, errorMessage, 'error');
                 }
             } catch (error) {
                 console.error('Form gönderilirken hata oluştu:', error);
-                Swal.fire('Hata!', 'Bir ağ hatası oluştu veya sunucuya ulaşılamadı: ' + error.message, 'error');
+                const alertConfig = window.GorlabsDatatables?.config?.alerts || {};
+                const title = alertConfig?.error || 'Hata!';
+                const text = alertConfig?.network_error || 'Bir ağ hatası oluştu veya sunucuya ulaşılamadı: ' + error.message;
+                Swal.fire(title, text, 'error');
             } finally {
                 this.isLoading = false;
             }
