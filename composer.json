@@ -35,6 +35,16 @@
     },
     "minimum-stability": "stable",
     "prefer-stable": true,
+    "config": {
+        "audit": {
+            "abandoned": "report"
+        },
+        "policy": {
+            "advisories": {
+                "block": false
+            }
+        }
+    },
     "require-dev": {
         "orchestra/testbench": "^8.0||^9.0||^10.0",
         "phpunit/phpunit": "^10.5||^11.0",
