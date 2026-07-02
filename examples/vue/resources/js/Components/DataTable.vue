@@ -53,7 +53,7 @@ async function fetchData() {
         params.set('search[value]', searchQuery.value);
         params.set('search[regex]', 'false');
 
-        const response = await fetch(props.ajaxUrl, {
+        const response = await fetch(`${props.ajaxUrl}?${params.toString()}`, {
             method: 'GET',
             headers: {
                 'X-CSRF-TOKEN': (document.querySelector('meta[name="csrf-token"]') as HTMLMetaElement)?.content || '',
@@ -128,7 +128,7 @@ function deleteItem(id: number) {
                             :class="['px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider cursor-pointer', col.className]"
                             @click="col.orderable && sort(col.name)">
                             <span class="flex items-center gap-1">
-                                {{ col.title }}
+                                <span v-html="col.title"></span>
                                 <span v-if="sortColumn === col.name" class="text-xs">
                                     {{ sortDirection === 'asc' ? '↑' : '↓' }}
                                 </span>
