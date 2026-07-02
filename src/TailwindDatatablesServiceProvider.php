@@ -29,9 +29,14 @@ class TailwindDatatablesServiceProvider extends ServiceProvider
         ], 'tailwind-datatables-css'); // Bu, CSS dosyasını yayımlamak için yeni bir publish grubu oluşturur.
 
         // YAJRA DATATABLES HTML YAPILANDIRMASINI OTOMATİK SET ETME
-        // Bu kısım, kullanıcıların config/datatables-html.php dosyasını elle değiştirmesini engeller.
-        Config::set('datatables-html.script', 'tailwind-datatables::datatable.scripts');
-        Config::set('datatables-html.view', 'tailwind-datatables::datatable.table');
+        // Bu kısım, config/gorlabs-tailwind-datatables.php içindeki
+        // override_yajra_config anahtarına bağlıdır.
+        // Varsayılan: true (mevcut davranış — Yajra'nın script/view yolunu runtime'da override eder)
+        // false: kullanıcı kendi config/datatables-html.php ayarlarını kullanabilir.
+        if (config('gorlabs-tailwind-datatables.override_yajra_config', true)) {
+            Config::set('datatables-html.script', 'tailwind-datatables::datatable.scripts');
+            Config::set('datatables-html.view', 'tailwind-datatables::datatable.table');
+        }
 
     }
 

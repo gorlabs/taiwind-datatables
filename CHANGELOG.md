@@ -5,7 +5,20 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.0.0] - 2024-07-08  (Bugünün tarihi veya ilk yayımlama tarihi)
+## [1.1.0] - 2026-07-02
+
+### Added
+- `override_yajra_config` config anahtarı (varsayılan: true). false yapılırsa
+  `Config::set('datatables-html.*')` runtime override'ı devre dışı kalır.
+- `.github/workflows/tests.yml` — CI matrix (Laravel 10/11/12/13, PHP 8.1/8.2/8.3).
+
+### Changed
+- `resources/js/post-form.js`: `Alpine.data('postForm', ...)` kaydı kaldırıldı.
+  Kayıt artık sadece `crud-datatable.js` üzerinden yapılır.
+- `src/TailwindDatatablesServiceProvider.php`: `Config::set('datatables-html.*')`
+  override'ı `override_yajra_config` kontrolüne alındı.
+
+## [1.0.0] - 2024-07-08
 
 ### Added
 - Initial release of Gorlabs Laravel Tailwind DataTables package.

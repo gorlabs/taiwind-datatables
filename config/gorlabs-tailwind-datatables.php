@@ -16,6 +16,20 @@ return [
 
     /*
     |--------------------------------------------------------------------------
+    | Yajra DataTables HTML Config Override
+    |--------------------------------------------------------------------------
+    | Varsayılan: true (mevcut davranış — paket, Yajra'nın script/view yolunu
+    | runtime'da override eder). false yapılırsa kullanıcı kendi
+    | config/datatables-html.php ayarlarını kullanabilir.
+    | UYARI: false yapıldığında ilgili config anahtarları tanımlı değilse
+    | Yajra varsayılanları kullanılır; Blade view'lar beklenen gibi
+    | görünmeyebilir.
+    |
+    */
+    'override_yajra_config' => true,
+
+    /*
+    |--------------------------------------------------------------------------
     | DataTables Varsayılan Seçenekleri
     |--------------------------------------------------------------------------
     | Yajra DataTables için varsayılan yapılandırma seçenekleri.

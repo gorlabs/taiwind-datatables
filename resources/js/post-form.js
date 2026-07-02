@@ -6,7 +6,7 @@ import Swal from 'sweetalert2';
 import dayjs from 'dayjs';
 
 // Alpine.data'ya kaydettiğimiz fonksiyonu bir değişkene atıyoruz ve dışa aktarıyoruz.
-export const postForm = (initialPostData = {}) => { // <-- Burada `export const` eklendi
+export const postForm = (initialPostData = {}) => {
     return {
         // ... mevcut tüm Alpine.js mantığı buraya devam edecek ...
         formData: {
@@ -78,6 +78,3 @@ export const postForm = (initialPostData = {}) => { // <-- Burada `export const`
         },
     };
 };
-
-// Ve sonra bu fonksiyonu Alpine.data'ya kaydedin
-Alpine.data('postForm', postForm);
