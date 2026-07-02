@@ -14,8 +14,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `window.GorlabsDatatables.config` JS bridge — config değerlerini PHP'den JS'e aktarır.
 - `resources/lang/tr.json` ve `resources/lang/en.json` — Blade form metinleri çeviri anahtarları.
 - Vue 3 native bileşenleri (examples/vue): `DataTable.vue`, `FormModal.vue`, `IndexVueNative.vue`.
+- Livewire 3 native bileşenleri (examples/livewire): `PostsTable.php`, `PostForm.php`, `posts-table.blade.php`, `posts-demo.blade.php`.
 - `/posts-vue-native` rotası (Vue-native demo sayfası).
+- `/posts-livewire-native` rotası (Livewire-native demo sayfası).
 - `docs/en/vue-native-components.md` ve `docs/tr/vue-native-bilesenler.md`.
+- `docs/en/livewire-native-components.md` ve `docs/tr/livewire-native-bilesenler.md`.
 
 ### Changed
 - `resources/js/post-form.js`: `Alpine.data('postForm', ...)` kaydı kaldırıldı.
