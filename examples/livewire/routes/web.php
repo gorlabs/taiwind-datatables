@@ -17,3 +17,8 @@ require __DIR__.'/auth.php';
 // Yeni Eklenen Post Rotları
 Route::resource('posts', PostController::class);
 Route::get('posts-data', [PostController::class, 'ajaxData'])->name('posts.data');
+
+// Livewire Native Demo (Plan 0005)
+Route::get('/posts-livewire-native', \App\Livewire\PostsTable::class)
+    ->middleware('auth')
+    ->name('posts.livewire-native');
