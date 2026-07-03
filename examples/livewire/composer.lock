@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cc55b0fbc8d02e64aeb787ef75215b3f",
+    "content-hash": "7a204b47b3850ce49d1c1db6dc47896a",
     "packages": [
         {
             "name": "brick/math",
@@ -581,24 +581,23 @@
         },
         {
             "name": "gorlabs/tailwind-datatables",
-            "version": "v1.0.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/gorlabs/tailwind-datatables.git",
-                "reference": "a4bd78aa5c882f5aecf6d7b566c1dbe068d69a1d"
-            },
+            "version": "dev-feature/v1.1.0-test-infra-ci",
             "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/gorlabs/tailwind-datatables/zipball/a4bd78aa5c882f5aecf6d7b566c1dbe068d69a1d",
-                "reference": "a4bd78aa5c882f5aecf6d7b566c1dbe068d69a1d",
-                "shasum": ""
+                "type": "path",
+                "url": "../..",
+                "reference": "8d0927b8349f3890bd2bd3ca7a9439362bcc384a"
             },
             "require": {
-                "illuminate/support": "^10.0 || ^11.0 || ^12.0",
+                "illuminate/support": "^10.0 || ^11.0 || ^12.0 || ^13.0",
                 "php": "^8.2",
-                "yajra/laravel-datatables-buttons": "^10.0 || ^11.0 || ^12.0",
-                "yajra/laravel-datatables-html": "^10.0 || ^11.0 || ^12.0",
-                "yajra/laravel-datatables-oracle": "^10.0 || ^11.0 || ^12.0"
+                "yajra/laravel-datatables-buttons": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "yajra/laravel-datatables-html": "^10.0 || ^11.0 || ^12.0 || ^13.0",
+                "yajra/laravel-datatables-oracle": "^10.0 || ^11.0 || ^12.0 || ^13.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "^1.6",
+                "orchestra/testbench": "^8.0||^9.0||^10.0",
+                "phpunit/phpunit": "^10.5||^11.0"
             },
             "type": "laravel-package",
             "extra": {
@@ -613,7 +612,11 @@
                     "Gorlabs\\TailwindDatatables\\": "src/"
                 }
             },
-            "notification-url": "https://packagist.org/downloads/",
+            "autoload-dev": {
+                "psr-4": {
+                    "Gorlabs\\TailwindDatatables\\Tests\\": "tests/"
+                }
+            },
             "license": [
                 "MIT"
             ],
@@ -624,11 +627,9 @@
                 }
             ],
             "description": "Yajra DataTables integration with Tailwind CSS and Alpine.js for Laravel projects.",
-            "support": {
-                "issues": "https://github.com/gorlabs/tailwind-datatables/issues",
-                "source": "https://github.com/gorlabs/tailwind-datatables/tree/v1.0.1"
-            },
-            "time": "2025-07-07T13:45:30+00:00"
+            "transport-options": {
+                "relative": true
+            }
         },
         {
             "name": "graham-campbell/result-type",
@@ -9986,7 +9987,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {},
+    "stability-flags": {
+        "gorlabs/tailwind-datatables": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {
