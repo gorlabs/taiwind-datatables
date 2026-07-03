@@ -20,6 +20,24 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - `docs/en/vue-native-components.md` ve `docs/tr/vue-native-bilesenler.md`.
 - `docs/en/livewire-native-components.md` ve `docs/tr/livewire-native-bilesenler.md`.
 
+- `resources/lang/en.json` ve `resources/lang/tr.json` (düz JSON) yerine
+  `resources/lang/en/messages.php` ve `resources/lang/tr/messages.php` (PHP array)
+  formatına geçildi. JSON namespace uyumsuzluğu giderildi —
+  `__('gorlabs-tailwind-datatables::messages.form.title')` artık doğru çözülüyor.
+- React (Inertia) native bileşenleri (examples/react): `DataTable.jsx`, `FormModal.jsx`, `IndexReactNative.jsx`.
+- `/posts-react-native` rotası (React-native demo sayfası).
+- `docs/en/react-native-components.md` ve `docs/tr/react-native-bilesenler.md`.
+- `examples/react/` — tam Laravel Breeze React + Inertia demo projesi.
+- `resolve.alias` konfigürasyonu (Vite 8/Rolldown symlink çözümlemesi için).
+- CSRF meta tag uyarısı (Breeze React layout'unda varsayılan olarak yok).
+- Global kütüphane (jQuery, DataTables, Alpine.js, SweetAlert2, dayjs, JSZip, pdfMake)
+  import + window ataması (Blade bridge sayfası için).
+
+### Fixed
+- Paket çeviri sistemi: `loadTranslationsFrom()` JSON dosyalarıyla çalışmaz,
+  PHP array formatına geçildi (retroaktif düzeltme, bkz. failed_attempts.md).
+- Livewire örneği path repository tanımı eksikti (retroaktif düzeltme, bkz. approved.md).
+
 ### Changed
 - `resources/js/post-form.js`: `Alpine.data('postForm', ...)` kaydı kaldırıldı.
   Kayıt artık sadece `crud-datatable.js` üzerinden yapılır.

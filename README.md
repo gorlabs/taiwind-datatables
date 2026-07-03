@@ -55,7 +55,7 @@ php artisan vendor:publish --tag=tailwind-datatables-css
 ```
 This command will copy the published CSS files under resources/css. You will need to import these files in your own resources/css/app.css file. A separate publishing command is not required for JavaScript files; they can be imported directly from the vendor directory.
 ## Example Projects
-You can examine our ready-to-use example projects to see how the package works with Livewire and Vue.js stacks. These projects are full-fledged Laravel applications demonstrating the installation and basic usage of the package.
+You can examine our ready-to-use example projects to see how the package works with Livewire, Vue.js, and React stacks. These projects are full-fledged Laravel applications demonstrating the installation and basic usage of the package.
 ### Running Example Projects
 
 Each example project manages its own dependencies and database. 
@@ -77,7 +77,19 @@ Each example project manages its own dependencies and database.
     php artisan serve        # Start Laravel development server
     # Open http://localhost:8000/posts in your browser (or login)
     ```
-3.  **Run the Livewire example:**
+3.  **Run the React example:**
+    ```bash
+    cd ../react
+    composer install
+    npm install
+    cp .env.example .env
+    php artisan key:generate
+    php artisan migrate:fresh --seed
+    npm run dev
+    php artisan serve
+    # Open http://localhost:8000/posts-react-native in your browser
+    ```
+4.  **Run the Livewire example:**
     ```bash
     cd ../livewire
     composer install

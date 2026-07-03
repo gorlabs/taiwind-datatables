@@ -80,7 +80,19 @@ Her bir örnek proje kendi bağımlılıklarını ve veritabanını yönetir.
     php artisan serve        # Laravel geliştirme sunucusunu başlatın
     # Tarayıcınızda http://localhost:8000/posts adresine gidin (veya login olun)
     ```
-3.  **Livewire Örneğini Çalıştırın:**
+3.  **React Örneğini Çalıştırın:**
+    ```bash
+    cd ../react
+    composer install
+    npm install
+    cp .env.example .env
+    php artisan key:generate
+    php artisan migrate:fresh --seed
+    npm run dev
+    php artisan serve
+    # Tarayıcınızda http://localhost:8000/posts-react-native adresine gidin
+    ```
+4.  **Livewire Örneğini Çalıştırın:**
     ```bash
     cd ../livewire
     composer install
