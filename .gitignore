@@ -1,5 +1,7 @@
 /vendor/
 /wiki/
+!/wiki/ledger/
+!/wiki/ledger/**
 node_modules/
 npm-debug.log
 yarn-error.log
